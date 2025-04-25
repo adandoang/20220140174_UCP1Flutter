@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              
+              Image(image: AssetImage('assets/images/nike.jpg'),),
               Text('Email'),
               TextFormField(
                 controller: emailController,
@@ -64,7 +64,11 @@ class _LoginPageState extends State<LoginPage> {
                   return null;
                 },
               ),
+              const SizedBox(height: 70),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(6000, 70),
+                ),
                 onPressed: () {
                   if(_formKey.currentState!.validate()) {
                     Navigator.pushReplacement(
