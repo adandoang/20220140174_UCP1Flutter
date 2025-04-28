@@ -113,12 +113,19 @@ class _LoginPageState extends State<LoginPage> {
                         },
                         child: Text('Masuk', style: TextStyle(fontSize: 15),),
                       ),
-                      TextButton(onPressed: () {
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text('Belum memiliki akun?'),
+                          TextButton(onPressed: () {
                         Navigator.push(context,
                         MaterialPageRoute(builder: (context)=> Registerpage()),
                         );
                       },
-                      child: Text('Belum punya akun? Daftar'),)
+                      child: Text('Daftar disini', style: TextStyle(color: const Color.fromARGB(255, 255, 47, 0),)))
+                        ],
+                      )
                     ],
                   ),
                   )),
