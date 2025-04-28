@@ -29,7 +29,9 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image(image: AssetImage('assets/images/nike.jpg'),),
+              Image.asset(
+                    'assets/images/nike.png',
+                    height: 100),
               Text('Email'),
               TextFormField(
                 controller: emailController,
@@ -68,6 +70,8 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   fixedSize: Size(6000, 70),
+                  backgroundColor: const Color.fromARGB(255, 255, 47, 0),
+                  foregroundColor: Colors.white70
                 ),
                 onPressed: () {
                   if(_formKey.currentState!.validate()) {
@@ -77,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                     );
                   }
                 },
-                child: Text('Masuk'),
+                child: Text('Masuk', style: TextStyle(fontSize: 15),),
               ),
               TextButton(onPressed: () {
                 Navigator.push(context,
