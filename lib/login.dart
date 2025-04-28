@@ -42,70 +42,86 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-              Text('Email'),
-              TextFormField(
-                    controller: emailController,
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.mail),
-                      hintText: 'Email',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
+                  const SizedBox(height: 20),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Email',
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Masukkan email anda';
-                      }
-                      return null;
-                    },
                   ),
-              Text('Password'),
-              TextFormField(
-                    controller: passwordController,
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.lock),
-                      hintText: 'Password',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                  const SizedBox(height: 5),
+                  TextFormField(
+                        controller: emailController,
+                        decoration: InputDecoration(
+                          prefixIcon: const Icon(Icons.mail),
+                          hintText: 'Email',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Masukkan email anda';
+                          }
+                          return null;
+                        },
                       ),
-                      filled: true,
-                      fillColor: Colors.white,
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Masukkan password anda';
-                      }
-                      return null;
-                    },
+                      const SizedBox(height: 20),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Password',
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                      ),
+                      const SizedBox(height: 5),
+                      TextFormField(
+                            controller: passwordController,
+                            decoration: InputDecoration(
+                              prefixIcon: const Icon(Icons.lock),
+                              hintText: 'Password',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              filled: true,
+                              fillColor: Colors.white,
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Masukkan password anda';
+                              }
+                              return null;
+                            },
+                          ),
+                      const SizedBox(height: 70),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          fixedSize: Size(6000, 70),
+                          backgroundColor: const Color.fromARGB(255, 255, 47, 0),
+                          foregroundColor: Colors.white70
+                        ),
+                        onPressed: () {
+                          if(_formKey.currentState!.validate()) {
+                            Navigator.pushReplacement(
+                              context, 
+                              MaterialPageRoute(builder: (context) => const HomePage()),
+                            );
+                          }
+                        },
+                        child: Text('Masuk', style: TextStyle(fontSize: 15),),
+                      ),
+                      TextButton(onPressed: () {
+                        Navigator.push(context,
+                        MaterialPageRoute(builder: (context)=> Registerpage()),
+                        );
+                      },
+                      child: Text('Belum punya akun? Daftar'),)
+                    ],
                   ),
-              const SizedBox(height: 70),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  fixedSize: Size(6000, 70),
-                  backgroundColor: const Color.fromARGB(255, 255, 47, 0),
-                  foregroundColor: Colors.white70
-                ),
-                onPressed: () {
-                  if(_formKey.currentState!.validate()) {
-                    Navigator.pushReplacement(
-                      context, 
-                      MaterialPageRoute(builder: (context) => const HomePage()),
-                    );
-                  }
-                },
-                child: Text('Masuk', style: TextStyle(fontSize: 15),),
-              ),
-              TextButton(onPressed: () {
-                Navigator.push(context,
-                MaterialPageRoute(builder: (context)=> Registerpage()),
-                );
-              },
-              child: Text('Belum punya akun? Daftar'),)
-            ],
-          ),
-          )),
-    ); 
-  }
-}
+                  )),
+            ); 
+          }
+        }
