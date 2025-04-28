@@ -96,23 +96,35 @@ class _LoginPageState extends State<LoginPage> {
                               return null;
                             },
                           ),
-                      const SizedBox(height: 70),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          fixedSize: Size(6000, 70),
-                          backgroundColor: const Color.fromARGB(255, 255, 47, 0),
-                          foregroundColor: Colors.white70
+                      const SizedBox(height: 60),
+                      SizedBox(
+                    width: double.infinity,
+                    height: 55,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFFF2F00),
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
                         ),
-                        onPressed: () {
-                          if(_formKey.currentState!.validate()) {
-                            Navigator.pushReplacement(
-                              context, 
-                              MaterialPageRoute(builder: (context) => const HomePage()),
-                            );
-                          }
-                        },
-                        child: Text('Masuk', style: TextStyle(fontSize: 15),),
                       ),
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => const HomePage()),
+                          );
+                        }
+                      },
+                      child: const Text(
+                        'Masuk',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
                       const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -123,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                         MaterialPageRoute(builder: (context)=> Registerpage()),
                         );
                       },
-                      child: Text('Daftar disini', style: TextStyle(color: const Color.fromARGB(255, 255, 47, 0),)))
+                      child: Text('Daftar disini', style: TextStyle(color: const Color(0xFFFF2F00),)))
                         ],
                       )
                     ],
