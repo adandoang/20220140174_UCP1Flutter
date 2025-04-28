@@ -13,6 +13,8 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  bool _obscureText = true;
+
   @override
   void initState(){
     super.initState();
@@ -79,23 +81,34 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const SizedBox(height: 5),
                       TextFormField(
-                            controller: passwordController,
-                            decoration: InputDecoration(
-                              prefixIcon: const Icon(Icons.lock),
-                              hintText: 'Password',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              filled: true,
-                              fillColor: Colors.white,
-                            ),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Masukkan password anda';
-                              }
-                              return null;
-                            },
-                          ),
+                controller: passwordController,
+                obscureText: _obscureText,
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(Icons.lock),
+                  hintText: 'Password',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscureText ? Icons.visibility_off : Icons.visibility,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Masukkan password anda';
+                  }
+                  return null;
+                },
+              ),
                       const SizedBox(height: 60),
                       SizedBox(
                     width: double.infinity,
