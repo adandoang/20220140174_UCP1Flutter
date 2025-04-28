@@ -32,40 +32,54 @@ class _LoginPageState extends State<LoginPage> {
               Image.asset(
                     'assets/images/nike.png',
                     height: 100),
+                    const SizedBox(height: 20),
+                  const Text(
+                    'SELAMAT DATANG KEMBALI',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1.2,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
               Text('Email'),
               TextFormField(
-                controller: emailController,
-                decoration: InputDecoration(
-                          label: Icon(Icons.mail),
-                          hintText: 'Input Email',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your email';
-                  }
-                  return null;
-                }
-              ),
+                    controller: emailController,
+                    decoration: InputDecoration(
+                      prefixIcon: const Icon(Icons.mail),
+                      hintText: 'Email',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Masukkan email anda';
+                      }
+                      return null;
+                    },
+                  ),
               Text('Password'),
               TextFormField(
-                controller: passwordController,
-                decoration: InputDecoration(
-                          label: Icon(Icons.lock),
-                          hintText: 'Input Password',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your email';
-                  }
-                  return null;
-                },
-              ),
+                    controller: passwordController,
+                    decoration: InputDecoration(
+                      prefixIcon: const Icon(Icons.lock),
+                      hintText: 'Password',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Masukkan password anda';
+                      }
+                      return null;
+                    },
+                  ),
               const SizedBox(height: 70),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
