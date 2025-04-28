@@ -66,6 +66,12 @@ class _RegisterPageState extends State<Registerpage> {
                   fillColor: Colors.white,
                   prefixIcon: const Icon(Icons.person),
                 ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Nama Lengkap tidak boleh kosong';
+                  }
+                  return null;
+                },
               ),
               const SizedBox(height: 20),
 
@@ -91,6 +97,12 @@ class _RegisterPageState extends State<Registerpage> {
                             fillColor: Colors.white,
                             prefixIcon: const Icon(Icons.mail),
                           ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Email tidak boleh kosong';
+                            }
+                            return null;
+                          },
                         ),
                       ],
                     ),
@@ -116,6 +128,12 @@ class _RegisterPageState extends State<Registerpage> {
                             fillColor: Colors.white,
                             prefixIcon: const Icon(Icons.phone),
                           ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'No HP tidak boleh kosong';
+                            }
+                            return null;
+                          },
                         ),
                       ],
                     ),
@@ -157,6 +175,12 @@ class _RegisterPageState extends State<Registerpage> {
                               },
                             ),
                           ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Password tidak boleh kosong';
+                            }
+                            return null;
+                          },
                         ),
                       ],
                     ),
@@ -193,6 +217,15 @@ class _RegisterPageState extends State<Registerpage> {
                               },
                             ),
                           ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Konfirmasi password tidak boleh kosong';
+                            }
+                            if (value != passwordController.text) {
+                              return 'Konfirmasi password harus sama';
+                            }
+                            return null;
+                          },
                         ),
                       ],
                     ),
@@ -217,7 +250,17 @@ class _RegisterPageState extends State<Registerpage> {
                     ),
                   ),
                   onPressed: () {
-                    // aksi daftar nanti disini
+                    if (_formKey.currentState!.validate()) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Pendaftaran berhasil!')),
+                      );
+                      Navigator.pushNamed(context, '/login', arguments: {
+                        'nama': namaController.text,
+                        'email': emailController.text,
+                        'nohp': nohpController.text,
+                        'password': passwordController.text,
+                      });
+                    }
                   },
                   child: const Text('Daftar'),
                 ),
@@ -228,7 +271,7 @@ class _RegisterPageState extends State<Registerpage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Sudah memiliki akun? Silahkan '),
+                  const Text('Sudah memiliki akun?'),
                   TextButton(
                     onPressed: () {
                       Navigator.pushNamed(context, '/login');
