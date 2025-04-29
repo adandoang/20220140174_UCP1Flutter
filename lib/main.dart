@@ -4,6 +4,7 @@ import 'package:ucp1_paml_managementapp/dataPiket.dart';
 import 'package:ucp1_paml_managementapp/homepage.dart';
 import 'package:ucp1_paml_managementapp/login.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:ucp1_paml_managementapp/pendataanBarang.dart';
 
 
 
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/home': (context) => HomePage(email: emailController.text),
         '/dataPiket': (context) => DataPiketPage(),
-        '/dataPelanggan': (context) => DataPelangganPage()
+        '/dataPelanggan': (context) => DataPelangganPage(),
+        '/pendataanBarang': (context) => PendataanBarangPage()
       },
     );
   }

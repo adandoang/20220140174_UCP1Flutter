@@ -114,7 +114,7 @@ class HomePage extends StatelessWidget {
 
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, '/barangMasukKeluar');
+                        Navigator.pushNamed(context, '/pendataanBarang');
                       },
                       child: Container(
                         width: double.infinity,
