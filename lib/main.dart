@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1_paml_managementapp/dataPiket.dart';
 import 'package:ucp1_paml_managementapp/homepage.dart';
 import 'package:ucp1_paml_managementapp/login.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => LoginPage(),
         '/home': (context) => HomePage(email: emailController.text),
+        '/dataPiket': (context) => DataPiketPage(),
       },
     );
   }
