@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'homepage.dart';
+import 'login.dart';
+
 class ResultPage extends StatelessWidget {
   final DateTime tanggal;
   final String jenisTransaksi;
@@ -46,10 +50,27 @@ class ResultPage extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            const SizedBox(height: 32),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildDetailItem(String label, String value) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(label, style: const TextStyle(fontSize: 14)),
+              Text(value, style: const TextStyle(fontSize: 14)),
+            ],
+          ),
+        ),
+        const Divider(height: 1, thickness: 1),
+      ],
     );
   }
 }
