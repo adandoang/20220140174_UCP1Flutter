@@ -124,9 +124,11 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(builder: (context) => const HomePage()),
-                          );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomePage(email: emailController.text),
+                        ),
+                      );
                         }
                       },
                       child: const Text(

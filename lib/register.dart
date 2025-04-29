@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:ucp1_paml_managementapp/homepage.dart';
 class Registerpage extends StatefulWidget {
   const Registerpage({super.key});
 
@@ -254,12 +254,12 @@ class _RegisterPageState extends State<Registerpage> {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Pendaftaran berhasil!')),
                       );
-                      Navigator.pushNamed(context, '/login', arguments: {
-                        'nama': namaController.text,
-                        'email': emailController.text,
-                        'nohp': nohpController.text,
-                        'password': passwordController.text,
-                      });
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomePage(email: emailController.text),
+                        ),
+                      );
                     }
                   },
                   child: const Text('Daftar'),
