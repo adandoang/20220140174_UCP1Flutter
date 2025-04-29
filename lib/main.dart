@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:ucp1_paml_managementapp/dataPiket.dart';
 import 'package:ucp1_paml_managementapp/homepage.dart';
 import 'package:ucp1_paml_managementapp/login.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 
-void main() {
-  runApp(const MyApp());
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting('id_ID', null);
+  runApp(MyApp()); 
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
