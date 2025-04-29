@@ -5,6 +5,7 @@ import 'package:ucp1_paml_managementapp/homepage.dart';
 import 'package:ucp1_paml_managementapp/login.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:ucp1_paml_managementapp/pendataanBarang.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 
@@ -25,7 +26,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+         textTheme: GoogleFonts.poppinsTextTheme(),
+        scaffoldBackgroundColor: const Color(0xFFFFFBF9),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            textStyle: const TextStyle(fontSize: 16),
+          ),
+        ),
       ),
       initialRoute: '/login',
       routes: {
