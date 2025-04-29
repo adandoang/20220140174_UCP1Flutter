@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'hasilPendataan.dart';
 
 class PendataanBarangPage extends StatefulWidget {
   const PendataanBarangPage({super.key});
@@ -47,6 +48,30 @@ class _PendataanBarangPageState extends State<PendataanBarangPage> {
       _selectedBarang = barang;
       _hargaSatuan = barang != null ? _barangOptions[barang]! : 0;
     });
+  }
+
+  void _submitForm() {
+    if (_formKey.currentState!.validate() && _selectedDate != null) {
+      _formKey.currentState!.save();
+      int totalHarga = _hargaSatuan * _jumlahBarang;
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ResultPage(
+            tanggal: _selectedDate!,
+            jenisTransaksi: _selectedTransaksi!,
+            jenisBarang: _selectedBarang!,
+            jumlahBarang: _jumlahBarang,
+            hargaSatuan: _hargaSatuan,
+            totalHarga: totalHarga,
+          ),
+        ),
+      );
+    } else if (_selectedDate == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Pilih tanggal transaksi')),
+      );
+    }
   }
 
   @override
@@ -194,7 +219,7 @@ class _PendataanBarangPageState extends State<PendataanBarangPage> {
               const SizedBox(height: 32),
               Center(
                 child: ElevatedButton(
-                  onPressed: (){},
+                  onPressed: _submitForm,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
                     shape: RoundedRectangleBorder(
