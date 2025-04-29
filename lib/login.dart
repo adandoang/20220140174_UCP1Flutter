@@ -9,9 +9,11 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
+String? loggedInEmail;
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  
 
   bool _obscureText = true;
 
@@ -123,10 +125,11 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
+                          loggedInEmail = emailController.text;
                           Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomePage(email: emailController.text),
+                          builder: (context) => HomePage(email: loggedInEmail!),
                         ),
                       );
                         }

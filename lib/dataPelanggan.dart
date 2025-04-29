@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1_paml_managementapp/detailPelanggan.dart';
 
 class DataPelangganPage extends StatefulWidget {
   const DataPelangganPage({super.key});
@@ -19,12 +20,23 @@ class _DataPelangganPageState extends State<DataPelangganPage> {
   final Color primaryColor = const Color(0xFFFF3D00);
 
   void _simpanData() {
-    if (_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Data berhasil disimpan')),
-      );
-    }
+  if (_formKey.currentState!.validate()) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DetailPelangganPage(
+          nama: _namaController.text,
+          email: _emailController.text,
+          noHp: _noHpController.text,
+          alamat: _alamatController.text,
+          provinsi: _provinsiController.text,
+          kodePos: _kodePosController.text,
+        ),
+      ),
+    );
   }
+}
+
 
   void _resetForm() {
     _formKey.currentState!.reset();

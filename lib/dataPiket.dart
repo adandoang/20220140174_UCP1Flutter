@@ -12,6 +12,8 @@ class DataPiketPage extends StatefulWidget {
 
 class _DataPiketPageState extends State<DataPiketPage> {
   final TextEditingController _tugasController = TextEditingController();
+  TextEditingController namaController = TextEditingController(text: 'Admin');
+
   final _formKey = GlobalKey<FormState>();
 
   DateTime? _selectedDate;
@@ -26,7 +28,7 @@ class _DataPiketPageState extends State<DataPiketPage> {
 
   if (_formKey.currentState!.validate() && _selectedDate != null) {
     final tugas = _tugasController.text;
-    final nama = 'Admin';
+    final nama = namaController.text;
     final tanggal = _selectedDate!;
 
     setState(() {
@@ -110,7 +112,7 @@ class _DataPiketPageState extends State<DataPiketPage> {
               ),
               const SizedBox(height: 5),
               TextFormField(
-                initialValue: 'Admin',
+                controller: namaController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
