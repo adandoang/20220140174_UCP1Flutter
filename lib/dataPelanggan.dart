@@ -18,6 +18,24 @@ class _DataPelangganPageState extends State<DataPelangganPage> {
 
   final Color primaryColor = const Color(0xFFFF3D00);
 
+  void _simpanData() {
+    if (_formKey.currentState!.validate()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Data berhasil disimpan')),
+      );
+    }
+  }
+
+  void _resetForm() {
+    _formKey.currentState!.reset();
+    _namaController.clear();
+    _emailController.clear();
+    _noHpController.clear();
+    _alamatController.clear();
+    _provinsiController.clear();
+    _kodePosController.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -141,7 +159,7 @@ class _DataPelangganPageState extends State<DataPelangganPage> {
               const SizedBox(height: 24),
 
               ElevatedButton(
-                onPressed: (){},
+                onPressed: _simpanData,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: primaryColor,
                   padding: const EdgeInsets.symmetric(vertical: 16),
@@ -151,7 +169,7 @@ class _DataPelangganPageState extends State<DataPelangganPage> {
               ),
               const SizedBox(height: 12),
               OutlinedButton(
-                onPressed: (){},
+                onPressed: _resetForm,
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   side: BorderSide(color: primaryColor),
