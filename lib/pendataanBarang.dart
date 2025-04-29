@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'hasilPendataan.dart';
+import 'hasilpendataan.dart';
 
 class PendataanBarangPage extends StatefulWidget {
   const PendataanBarangPage({super.key});
@@ -226,7 +226,7 @@ class _PendataanBarangPageState extends State<PendataanBarangPage> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 211, vertical: 25),
+                        horizontal: 180, vertical: 25),
                   ),
                   child: const Text('Submit', style: TextStyle(color: Colors.white),),
                 ),

@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
                 children: [
                   const CircleAvatar(
                     radius: 30,
-                    backgroundImage: AssetImage('images/profile.jpg'),
+                    backgroundImage: AssetImage('assets/images/profile.jpg'),
                   ),
                   const SizedBox(width: 12),
                   Column(
@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
-                      child: Image.asset('images/promo.jpg'),
+                      child: Image.asset('assets/images/promo.jpg'),
                     ),
                     const SizedBox(height: 20),
                     Row(

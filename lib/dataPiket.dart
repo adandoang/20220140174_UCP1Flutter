@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:ucp1_paml_managementapp/detailPiket.dart';
+import 'package:ucp1_paml_managementapp/detailpiket.dart';
 
 
 class DataPiketPage extends StatefulWidget {

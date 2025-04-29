@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ucp1_paml_managementapp/dataPelanggan.dart';
-import 'package:ucp1_paml_managementapp/dataPiket.dart';
+import 'package:ucp1_paml_managementapp/datapelanggan.dart';
+import 'package:ucp1_paml_managementapp/datapiket.dart';
 import 'package:ucp1_paml_managementapp/homepage.dart';
 import 'package:ucp1_paml_managementapp/login.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:ucp1_paml_managementapp/pendataanBarang.dart';
+import 'package:ucp1_paml_managementapp/pendataanbarang.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
