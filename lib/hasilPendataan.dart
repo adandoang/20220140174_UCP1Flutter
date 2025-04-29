@@ -61,6 +61,29 @@ class ResultPage extends StatelessWidget {
             _buildDetailItem('Total Harga',
                 'Rp. ${NumberFormat.decimalPattern('id_ID').format(totalHarga)}'),
             const Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 150.0),
+              child: ElevatedButton(
+                onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage(email: loggedInEmail!,)),
+                  (route) => false, 
+                );
+              },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFFFF5B2D),
+                  minimumSize: const Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                child: const Text(
+                  'Selesai',
+                  style: TextStyle(fontSize: 16, color: Colors.white), 
+                ),
+              ),
+            ),
           ],
         ),
       ),
