@@ -56,7 +56,7 @@ class DetailPelangganPage extends StatelessWidget {
             TextFormField(
               initialValue: alamat,
               readOnly: true,
-             
+              decoration: _Decor(),
             ),
             const SizedBox(height: 16),
             Row(
@@ -70,7 +70,7 @@ class DetailPelangganPage extends StatelessWidget {
                       TextFormField(
                         initialValue: provinsi,
                         readOnly: true,
-                        
+                        decoration: _Decor(),
                       ),
                     ],
                   ),
@@ -85,6 +85,7 @@ class DetailPelangganPage extends StatelessWidget {
                       TextFormField(
                         initialValue: kodePos,
                         readOnly: true,
+                        decoration: _Decor(),
                       ),
                     ],
                   ),
@@ -110,10 +111,18 @@ class DetailPelangganPage extends StatelessWidget {
               child: const Center(
                 child: Text('Selesai', style: TextStyle(color: Colors.white)),
               ),
-            ),  
+            ),
           ],
-        )
-      )
+        ),
+      ),
+    );
+  }
+  InputDecoration _Decor() {
+    return InputDecoration(
+      filled: true,
+      fillColor: Colors.white,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
     );
   }
 }
