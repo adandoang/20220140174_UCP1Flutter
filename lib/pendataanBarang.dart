@@ -42,6 +42,13 @@ class _PendataanBarangPageState extends State<PendataanBarangPage> {
     }
   }
 
+  void _updateHargaSatuan(String? barang) {
+    setState(() {
+      _selectedBarang = barang;
+      _hargaSatuan = barang != null ? _barangOptions[barang]! : 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final primaryColor = Color(0xFFFF3D00);
@@ -127,7 +134,7 @@ class _PendataanBarangPageState extends State<PendataanBarangPage> {
                           child: Text(barang),
                         ))
                     .toList(),
-                onChanged: (value) => (){},
+                onChanged: (value) => _updateHargaSatuan(value),
                 validator: (value) =>
                     value == null ? 'Pilih jenis barang' : null,
               ),
